@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'NeutralFace';
+    src: url(./fonts/NeutralFace.otf) format('opentype'); 
+}   
+
+@font-face {
+    font-family: 'NeutralFace';
+    src: url(./fonts/NeutralFace-Bold.otf) format('opentype');
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-image: url(./images/background.jpg);
+    background-size: cover;
+}
+
+.animation-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calculator {
+    height: 65vh;
+    max-width: 300px;
+    margin: 15%;
+    flex: auto;
+    background-color: coral;
+}
+
+@media screen and (max-width: 600px) {
+    .calculator {
+        margin: 5%;
+    }
+    .animation-container {
+        justify-content: center;
+    }
+}
+
+.text-container {
+    position: absolute;
+    width: 50vw;
+    bottom: 0;
+    left: 0;
+}
+
+.text-container p {
+    font-family: 'NeutralFace';
+    font-weight: bold;
+    font-size: 6vw;
+    margin: 4.5vw;
+}
