@@ -99,19 +99,24 @@ body {
     font-weight: bold;
     font-size: 11px;
     background-color: #f2f2f2;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-right: 0;
+    border-bottom: 0;
     color: #7b7a78;
     border-radius: 8px;
-    border: none;
 }
 
 .utility button {
     background-color: black;
     color: whitesmoke;
+    border: none;
 }
 
 .row .operator{
     background-color: coral;
     color: whitesmoke;
+    border: none;
 }
 
 .text-container {
