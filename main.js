@@ -29,3 +29,77 @@ container.addEventListener('mouseleave', e => {
     display.style.transform = 'translateZ(0px)';
     buttonHousing.style.transform = 'translateZ(0px)';
 })
+
+
+//calculator functions
+function operate(num1, operator, num2,) {
+    switch(operator) {
+        case '+':
+            return Number(num1) + Number(num2)
+
+        case '-':
+            return Number(num1) - Number(num2)
+
+        case 'x':
+            return Number(num1) * Number(num2)
+
+        case '/':
+            return Number(num1) / Number(num2)
+
+    }
+}
+
+document.querySelector('.button-housing').addEventListener('click', e => {
+    if (e.target.className === 'operator') {
+        document.querySelector('.upper-display').textContent += ' ' + e.target.textContent + ' ';
+    }
+    else if (e.target.className == 'number') {
+        document.querySelector('.upper-display').textContent += e.target.textContent;
+    }
+    else if (e.target.id == 'equal-key'){
+        document.querySelector('.lower-display').textContent = evaluateExpression();
+    }
+})
+
+function evaluateExpression() {
+    let input = document.querySelector('.upper-display').textContent;
+    let inputArray = input.split(' ');
+    
+    while (inputArray.length != 1) {
+        if (inputArray.indexOf('/') != -1) {
+            let operatorIndex = inputArray.indexOf('/')
+            let ans = operate(inputArray[operatorIndex-1], inputArray[operatorIndex], inputArray[operatorIndex+1]);
+            inputArray.splice(operatorIndex-1, 3, ans);
+        }
+        else if (inputArray.indexOf('x') != -1) {
+            let operatorIndex = inputArray.indexOf('x')
+            let ans = operate(inputArray[operatorIndex-1], inputArray[operatorIndex], inputArray[operatorIndex+1]);
+            inputArray.splice(operatorIndex-1, 3, ans);
+        }
+        else if (inputArray.indexOf('+') != -1) {
+            let operatorIndex = inputArray.indexOf('+')
+            //account for negative sign in front of numbers
+            if (inputArray[operatorIndex-2] == '-') {
+                let ans = operate(-(inputArray[operatorIndex-1]), inputArray[operatorIndex], inputArray[operatorIndex+1]);
+                inputArray.splice(operatorIndex-1, 3, -(ans));
+            }
+            else {
+                let ans = operate(inputArray[operatorIndex-1], inputArray[operatorIndex], inputArray[operatorIndex+1]);
+                inputArray.splice(operatorIndex-1, 3, ans);
+            }
+        }
+        else if (inputArray.indexOf('-') != -1) {
+            let operatorIndex = inputArray.indexOf('-')
+            //account for negative sign in front of numbers
+            if (inputArray[operatorIndex-2] == '-') {
+                let ans = operate(-(inputArray[operatorIndex-1]), inputArray[operatorIndex], inputArray[operatorIndex+1]);
+                inputArray.splice(operatorIndex-1, 3, -(ans));
+            }
+            else {
+                let ans = operate(inputArray[operatorIndex-1], inputArray[operatorIndex], inputArray[operatorIndex+1]);
+                inputArray.splice(operatorIndex-1, 3, ans);
+            }
+        }
+    }
+    return inputArray[0];
+}
