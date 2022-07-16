@@ -75,6 +75,24 @@ body {
     border-radius: 0.5rem;
     margin-bottom: 2.5rem;
     transition: transform 0.75s ease-out;
+    padding: 10px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.upper-display {
+    height: 70%;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    padding-right: 3px;
+}
+
+.lower-display {
+    flex: auto;
+    text-align: end;
 }
 
 .button-housing {
