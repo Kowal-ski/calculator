@@ -50,23 +50,33 @@ function operate(num1, operator, num2,) {
 }
 
 document.querySelector('.button-housing').addEventListener('click', e => {
-    if (e.target.className == 'operator') {
-        document.querySelector('.upper-display').textContent += ' ' + e.target.textContent + ' ';
-    }
-    else if (e.target.className == 'number') {
-        document.querySelector('.upper-display').textContent += e.target.textContent;
-    }
-    else if (e.target.id == 'equal-key') {
-        document.querySelector('.lower-display').textContent = evaluateExpression();
-    }
-    else if (e.target.id == 'clear-key') {
-        document.querySelector('.upper-display').textContent = '';
-        document.querySelector('.lower-display').textContent = '';
-    }
-    else if (e.target.id == 'delete-key') {
-        let originalString = document.querySelector('.upper-display').textContent;
-        let newString = originalString.slice(0, originalString.length - 1);
-        document.querySelector('.upper-display').textContent = newString;
+    switch(e.target.className) {
+        case 'operator':
+            document.querySelector('.upper-display').textContent += ' ' + e.target.textContent + ' ';
+            break;
+        
+        case 'number':
+            document.querySelector('.upper-display').textContent += e.target.textContent;
+            break;
+        
+        case 'utility':
+            switch(e.target.id) {
+                case 'equal-key':
+                    document.querySelector('.lower-display').textContent = evaluateExpression();
+                    break;
+                
+                case 'clear-key':
+                    document.querySelector('.upper-display').textContent = '';
+                    document.querySelector('.lower-display').textContent = '';
+                    break;
+                
+                case 'delete-key':
+                    let originalString = document.querySelector('.upper-display').textContent;
+                    let newString = originalString.slice(0, originalString.length - 1);
+                    document.querySelector('.upper-display').textContent = newString;
+                    break;
+            }
+            break;
     }
 })
 
