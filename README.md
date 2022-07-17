@@ -17,4 +17,4 @@ The calculator has the following key features:
 
     - Fully reponsive UI that scales accordingly for all devices 
  
-    
+Live demo: https://kowal-ski.github.io/calculator/
