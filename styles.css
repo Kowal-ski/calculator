@@ -68,26 +68,36 @@ body {
 .display {
     width: 100%;
     height: 100px;
+
+    font-family: 'Poppins';
+    font-size: 12px;
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.15);
     border-top: 2px solid rgba(255, 255, 255, 0.5);
     border-left: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 0.5rem;
+
     margin-bottom: 2.5rem;
-    transition: transform 0.75s ease-out;
     padding: 10px;
-    font-family: 'Poppins';
-    font-size: 12px;
+    gap: 5px;
+
+    transition: transform 0.75s ease-out;
+
     display: flex;
     flex-direction: column;
-    gap: 5px;
 }
 
 .upper-display {
     height: 70%;
     overflow-wrap: break-word;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     padding-right: 3px;
+}
+
+.upper-display::-webkit-scrollbar {
+    display: none;
 }
 
 .lower-display {
@@ -108,7 +118,7 @@ body {
     justify-content: space-between;
 }
 
-.row button{
+.button-housing button{
     height: 55px;
     margin: 4px;
     flex: 1;
@@ -116,13 +126,17 @@ body {
     font-family: 'Poppins';
     font-weight: bold;
     font-size: 11px;
+    color: #7b7a78;
     background-color: #f2f2f2;
     border-top: 2px solid rgba(255, 255, 255, 0.5);
     border-left: 2px solid rgba(255, 255, 255, 0.5);
     border-right: 0;
     border-bottom: 0;
-    color: #7b7a78;
     border-radius: 8px;
+}
+
+.button-housing button:active {
+    transform: translateY(2px);
 }
 
 .utility button {
